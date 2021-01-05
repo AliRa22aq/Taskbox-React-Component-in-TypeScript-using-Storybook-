@@ -16,9 +16,8 @@ export interface TasksProps {
 }
 
  const Task: React.FC<TasksProps> = ({ task: { id, title, state } }) => {
-    //const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-    console.log(state)
     return (
         <div className={`list-item ${state}`}  >
             <label className = "checkbox" >
@@ -28,15 +27,16 @@ export interface TasksProps {
                 disabled = {true}
                 name = "checked"
                 />
-                <span className = "checkbox-custom" onClick = {() => {} }/>
+                <span className = "checkbox-custom" onClick = {() => dispatch(archiveTask(id))} />
             </label>
             <div className="title"  >
                 <input type="text" value = {title} readOnly = {true} placeholder = "Input title" />
+
             </div>
             
             <div className="actions" onClick = {(event) => event.stopPropagation()} >
                 {state !== "TASK_ARCHIVED" ? (
-                    <a  href = "/" onClick = {() => {} }  >
+                    <a  href = "/" onClick = {() => dispatch(pinnedTask(id))}>
                         <span  onClick = {(e) => {e.preventDefault()}} className = {`icon-star`} ></span>
                     </a>
                 ):null}

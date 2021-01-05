@@ -1,11 +1,16 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Task from './components/Task';
+import {PureInboxScreen} from './components/InboxScreen';
+import Header from './components/Header';
+
 
 function App() {
   return (
     <div className="App">
+      
+      <Header />
+      <PureInboxScreen />
 
 
     </div>

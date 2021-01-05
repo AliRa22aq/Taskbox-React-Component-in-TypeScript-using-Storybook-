@@ -1,16 +1,16 @@
 import React from 'react';
-import TaskList, {TasksListProps} from '../components/TaskList';
+import {PureTaskList, TasksListProps} from '../components/TaskList';
 import * as TaskStories from './Task.stories';
 import { Story } from '@storybook/react/types-6-0';
 
 
 export default {
-  component: TaskList,
+  component: PureTaskList,
   title: 'TaskList',
   decorators: [(story: () => React.ReactNode) => <div style={{ padding: '3rem' }}>{story()}</div>],
 };
 
-const Template: Story<TasksListProps> = args => <TaskList {...args} />;
+const Template: Story<TasksListProps> = args => <PureTaskList {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -30,8 +30,13 @@ WithPinnedTasks.args = {
   // Shaping the stories through args composition.
   // Inherited data coming from the Default story.
   tasks: [
-    ...Default.args?.tasks.slice(0, 5),
-    { id: '6', title: 'Task 6 (pinned)', state: 'TASK_PINNED' },
+    { ...TaskStories.Default.args?.task, id: '1', title: 'Task 1' },
+    { ...TaskStories.Default.args?.task, id: '2', title: 'Task 2' },
+    { ...TaskStories.Default.args?.task, id: '3', title: 'Task 3' },
+    { ...TaskStories.Default.args?.task, id: '4', title: 'Task 4' },
+    { ...TaskStories.Default.args?.task, id: '5', title: 'Task 5' , state: 'TASK_PINNED'},
+    { ...TaskStories.Default.args?.task, id: '6', title: 'Task 6' , state: 'TASK_PINNED'},
+
   ],
 };
 
