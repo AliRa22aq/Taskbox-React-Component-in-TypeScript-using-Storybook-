@@ -1,7 +1,7 @@
 import React from 'react';
 import '../index.css'
 import {useDispatch} from "react-redux"
-import { archiveTask, pinnedTask } from '../../store/TaskSlice';
+import { archiveTask, pinnedTask } from '../store/taskSlice';
 
 export interface TaskInterface {
     id?: string
@@ -16,7 +16,7 @@ export interface TasksProps {
 }
 
  const Task: React.FC<TasksProps> = ({ task: { id, title, state } }) => {
-    const dispatch = useDispatch();
+    //const dispatch = useDispatch();
 
     console.log(state)
     return (
@@ -28,7 +28,7 @@ export interface TasksProps {
                 disabled = {true}
                 name = "checked"
                 />
-                <span className = "checkbox-custom" onClick = {() => dispatch(archiveTask(id)) }/>
+                <span className = "checkbox-custom" onClick = {() => {} }/>
             </label>
             <div className="title"  >
                 <input type="text" value = {title} readOnly = {true} placeholder = "Input title" />
@@ -36,7 +36,7 @@ export interface TasksProps {
             
             <div className="actions" onClick = {(event) => event.stopPropagation()} >
                 {state !== "TASK_ARCHIVED" ? (
-                    <a  href = "/" onClick = {() => dispatch(pinnedTask(id))}  >
+                    <a  href = "/" onClick = {() => {} }  >
                         <span  onClick = {(e) => {e.preventDefault()}} className = {`icon-star`} ></span>
                     </a>
                 ):null}
