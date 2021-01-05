@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@bit/bit.envs.compilers.react": "^1.0.21",
     "@reduxjs/toolkit": "^1.5.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -59,7 +60,9 @@
     "react-test-renderer": "^17.0.1"
   },
   "bit": {
-    "env": {},
+    "env": {
+      "compiler": "bit.envs/compilers/react@1.0.21"
+    },
     "componentsDefaultDirectory": "components/{name}",
     "packageManager": "yarn"
   }

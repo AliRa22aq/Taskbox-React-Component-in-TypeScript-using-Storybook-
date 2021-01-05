@@ -40,14 +40,12 @@ export const PureInboxScreen: React.FC<ScreenProps> = ({ error }) => {
     );
   }
 
-
-
   return (
     <div className="page lists-show">
       <nav>
         <h1 className="title-page">
           <span className="title-wrapper">
-            <input type="text" value = {input}  onChange = {(e:React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}   />
+            <input type="text" value = {input}  onChange = {(e:React.ChangeEvent<HTMLInputElement>) => setInput(e.target.value)}  />
             <button className = "add_button"  onClick = {handleSubmit} >Add </button>
           </span>
         </h1>
